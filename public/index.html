@@ -1,0 +1,507 @@
+<!doctype html>
+<html>
+    <head>
+
+
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- View port for Responsive web pages -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <title>Movies to watch before I die </title>
+
+      <!-- Linking the Style sheet -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/style.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+        <!-- Linking the JQuery -->
+        <script src="javascript/jquery-1.12.3.min.js"></script>
+
+        <div class="container">
+          <div class="row">
+            <center><h1 id="heading">Movies to watch before I die </h1> </center>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="container" id="main">
+          <div class="row">
+            <div class="col-md-4">
+              <img alt="Image" src="" id="movieImage" class="img-responsive"/>
+            </div>
+            <div class="col-md-8">
+              <ul>
+                <li id="name">
+
+                </li>
+                <li id="year">
+
+                </li>
+                <li id="actors">
+
+                </li>
+                <li id="director">
+
+                </li>
+                <li id="plot">
+
+                </li>
+
+                <li>
+                  <ul id="line">
+                    <li id="release">
+
+                    </li>
+                    <li id="rating">
+
+                    </li>
+                    <li id="awards">
+
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <button class="btn btn-default" id="prev"> Previous </button>
+                  <button class="btn btn-default" id="next"> Next </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+
+          <br />
+          <br />
+
+
+  	      <div class="row">
+  		          <div class="col-md-3">
+
+                    <!-- Create Button -->
+                    <center><a href="#createForm" role="button" class="btn btn-success" data-toggle="modal">Create</a></center>
+
+                    <!-- Modal -->
+
+                    <div class="modal fade" id="createForm">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                      <button class="close" data-dismiss="modal">&times; </button>
+                                      <h2 class="modal-title">Insert Movie Details</h2>
+                                </div> <!-- End Modal Header  -->
+
+                                <div class="modal-body">
+
+                                  <form class="form-horizontal" method="post" action="add" name="addForm" onsubmit="return(validate2());" >
+                                          <div class="form-group">
+                                                <label class="col-lg-2 control-label" for="#inputTitle">Title</label>
+                                                <div class="col-lg-10">
+                                                    <input class="form-control" id="inputTitle" name="Title" placeholder="Title" type="text" />
+                                                    <br />
+                                                </div>
+
+                                                <label class="col-lg-2 control-label" for="#inputYear">Year</label>
+                                                <div class="col-lg-10">
+                                                    <input class="form-control" id="inputYear" name="Year" placeholder="Year" type="text" />
+                                                    <br />
+                                                </div>
+
+                                                <label class="col-lg-2 control-label" for="#inputActors">Actors</label>
+                                                <div class="col-lg-10">
+                                                    <input class="form-control" id="inputActors" name="Actors" placeholder="Actors" type="text" />
+                                                    <br />
+                                                </div>
+
+                                                <label class="col-lg-2 control-label" for="#inputDirector">Director</label>
+                                                <div class="col-lg-10">
+                                                    <input class="form-control" id="inputDirector" name="Director" placeholder="Director" type="text" />
+                                                    <br />
+                                                </div>
+
+
+                                                <label class="col-lg-2 control-label" for="#inputReleased">Released on</label>
+                                                <div class="col-lg-10">
+                                                    <input class="form-control" id="inputReleased" name="Released" placeholder="Released on" type="text" />
+                                                    <br />
+                                                </div>
+
+                                                <label class="col-lg-2 control-label" for="#inputPlot">Plot</label>
+                                                <div class="col-lg-10">
+                                                    <textarea class="form-control" id="inputPlot" name="Plot" placeholder="Plot"></textarea>
+                                                    <br />
+                                                </div>
+
+
+                                                <label class="col-lg-2 control-label" for="#inputRating">Rating</label>
+                                                <div class="col-lg-10">
+                                                    <input class="form-control" id="inputRating" name="Rating" placeholder="Rating" type="text" />
+                                                    <br />
+                                                </div>
+
+                                                <label class="col-lg-2 control-label" for="#inputAwards">Awards</label>
+                                                <div class="col-lg-10">
+                                                    <input class="form-control" id="inputAwards" name="Awards" placeholder="Awards &amp; Nominations" type="text" />
+                                                    <br />
+                                                </div>
+
+                                                <label class="col-lg-2 control-label" for="#inputImage">Upload Image</label>
+                                                <div class="col-lg-10">
+              					                               <input type="file"  class="form-control" id="inputImage" name="imageurl"/>
+                                                       <br />
+                                                </div>
+
+                                                <label class="col-lg-8 control-label" ></label>
+                                                <div class="col-lg-4">
+                                                    <input type="submit" value="Submit" name="submit" />
+                                                    <br />
+                                                </div>
+                                          </div><!-- Form Group -->
+                                  </form>
+                                </div> <!-- End Modal Body -->
+
+                                <div class="modal-footer">
+                                    <!-- <button class="btn btn-default"  type="button">Submit</button> -->
+                                    <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+                                </div> <!-- End Modal Footer -->
+
+                            </div> <!-- End Modal Content -->
+                        </div> <!-- End Modal Dialog -->
+                    </div> <!-- End myModal -->
+
+  		          </div> <!-- End Column -->
+
+                <div class="col-md-3">
+
+                       <!-- Read Button -->
+  			               <center><button type="button" class="btn btn-primary" id="read">
+  				                   Read
+  			              </button> </center>
+  		          </div>
+
+  		          <div class="col-md-3">
+
+                     <!-- Update Button -->
+  			             <center> <a href="#updateForm" role="button" class="btn btn-success" data-toggle="modal" id="updateButton"> Update</a></center>
+
+                     <!-- Modal -->
+                     <div class="modal fade" id="updateForm">
+                       <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                <button class="close" data-dismiss="modal">&times; </button>
+                                <h2 class="modal-title">Update Movie Details</h2>
+                              </div> <!-- End Modal Header  -->
+
+                              <div class="modal-body">
+
+                                  <form class="form-horizontal" method="post" name="updForm" action="update" onsubmit="return(validate());" >
+                                    <div class="form-group">
+                                      <label class="col-lg-2 control-label" for="#updateTitle">Title</label>
+                                      <div class="col-lg-10">
+                                        <input class="form-control" id="updateTitle" name="Title" placeholder="Title" type="text" readonly />
+                                        <br />
+                                      </div>
+
+                                      <label class="col-lg-2 control-label" for="#updatePlot">Plot</label>
+                                      <div class="col-lg-10">
+                                        <textarea class="form-control" id="updatePlot" name="updPlot" placeholder="Plot"></textarea>
+                                        <br />
+                                      </div>
+
+
+                                      <label class="col-lg-2 control-label" for="#updateRating">Rating</label>
+                                      <div class="col-lg-10">
+                                        <input class="form-control" id="updateRating" name="updRating" placeholder="Rating" type="text" />
+                                        <br />
+                                      </div>
+
+                                      <label class="col-lg-2 control-label" for="#updateAwards">Awards</label>
+                                      <div class="col-lg-10">
+                                        <input class="form-control" id="updateAwards" name="updAwards" placeholder="Awards &amp; Nominations" type="text" />
+                                        <br />
+                                      </div>
+
+                                      <label class="col-lg-2 control-label" for="#updateImage">Upload Image</label>
+                                      <div class="col-lg-10">
+  					                               <input type="file"  class="form-control" id="updateImage" name="imageurl"/>
+                                           <br />
+                                      </div>
+
+                                      <label class="col-lg-8 control-label" ></label>
+                                      <div class="col-lg-4">
+                                        <input type="submit" value="Submit" name="submit" />
+                                        <br />
+                                      </div>
+                                    </div><!-- Form Group -->
+                                  </form>
+                              </div> <!-- End Modal Body -->
+
+                              <div class="modal-footer">
+                                <!-- <button class="btn btn-default"  type="button">Submit</button> -->
+                                <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+                              </div> <!-- End Modal Footer -->
+
+                          </div> <!-- End Modal Content -->
+                      </div> <!-- End Modal Dialog -->
+                  </div> <!-- End myModal -->
+
+  		        </div> <!-- End Column -->
+
+  		        <div class="col-md-3">
+
+                  <!-- Delete Button -->
+  		            <center><a href="#deleteForm" role="button" class="btn btn-danger" data-toggle="modal" id="deleteButton">Delete</a></center>
+
+
+
+                  <div class="modal fade" id="deleteForm">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                  <button class="close" data-dismiss="modal">&times; </button>
+                                  <h2 class="modal-title">Delete Movie Details</h2>
+                            </div> <!-- End Modal Header  -->
+
+                            <div class="modal-body">
+
+                                <form class="form-horizontal" method="post" action="deletePage" >
+                                      <div class="form-group">
+                                            <label class="col-lg-4 control-label" for="#deleteTitle">Are you sure you want to delete?</label>
+                                            <div class="col-lg-8">
+                                                <input class="form-control" id="deleteTitle" name="Title" placeholder="Title" type="text"  readonly />
+                                                <br />
+                                            </div>
+
+                                            <label class="col-lg-8 control-label" ></label>
+                                            <div class="col-lg-4">
+                                              <input type="submit" value="Ok" name="submit" />
+                                              <br />
+                                            </div>
+                                        </div><!-- Form Group -->
+                                  </form>
+                            </div> <!-- End Modal Body -->
+
+                            <div class="modal-footer">
+                                <!-- <button class="btn btn-default"  type="button">Submit</button> -->
+                                <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+                            </div> <!-- End Modal Footer -->
+
+                          </div> <!-- End Modal Content -->
+                    </div> <!-- End Modal Dialog -->
+                  </div> <!-- End myModal -->
+
+
+            </div>
+
+  		</div>
+  	</div> <!-- End Row -->
+  </div> <!-- End Container -->
+
+  <br />
+  <br />
+
+
+
+
+    <script>
+        var myObj;
+
+        //AJAX call to read the URL
+        $.ajax({
+                url: '/getJSON',
+                success: function(result){
+                                myObj=JSON.parse(result);
+
+        create(myObj[0]);
+        var i=0;
+
+        function create(myObj)
+        {
+
+              $('li#name').empty().append("<h1>"+ myObj.Title + "</h1>");
+              $('li#year').empty().append("Year:" + myObj.Year);
+              $('li#actors').empty().append("Actors:" + myObj.Actors);
+              $('li#director').empty().append("Director:" +myObj.Director);
+              $('li#plot').empty().append("Plot:" +myObj.Plot);
+              $('li#release').empty().append("<span class='glyphicon glyphicon-calendar'> </span>" +myObj.Released);
+              $('li#rating').empty().append("&nbsp; |  &nbsp; Rating:" +myObj.imdbRating);
+              $('li#awards').empty().append("&nbsp; |  &nbsp; Awards &amp; Nominations:" + myObj.Awards);
+              $('#movieImage').attr('src',myObj.Poster);
+
+        }
+
+        $('#updateButton').on('click',function()
+        {
+            $('#updateTitle').val($('li#name').text());
+        });
+
+
+
+        $('#deleteButton').on('click',function()
+        {
+            $('#deleteTitle').val($('li#name').text());
+        });
+
+
+        $('button#next').on('click',function()
+        {
+            i=i+1;
+            if(i== myObj.length)
+            {
+              $('div#main').empty().append('End of movies.. Go to Previous');
+
+            }
+            else {
+                if(myObj[i]=="")
+                    i=i+1;
+                create(myObj[i]);
+            }
+        });
+
+        $('button#prev').on('click',function()
+        {
+          i=i-1;
+
+          if(i<0)
+          {
+              $('div#main').empty().append('Starting..');
+              //$('li').append("<button class='btn btn-default' id='next'> Next </button>");
+          }
+          else {
+
+            if(myObj[i]=="")
+                i=i-1;
+            create(myObj[i]);
+          }
+
+        });
+
+        $('button#read').on('click',function()
+        {
+            location.replace('/index.html');
+            i=0;
+            create(myObj[i]);
+        });
+
+
+    function validate()
+      {
+
+         if( document.updForm.updPlot.value == "" )
+         {
+            alert( "Please provide Description!" );
+            document.updForm.updPlot.focus() ;
+            return false;
+         }
+
+         if( document.updForm.updAwards.value == "" )
+         {
+            alert( "Please provide the Awards!" );
+            document.updForm.updAwards.focus() ;
+            return false;
+         }
+
+         if( document.updForm.updRating.value == "" ||
+         isNaN( document.updForm.updRating.value ) ||
+         document.updForm.updRating.value.length > 10 )
+         {
+            alert( "Please provide a Rating out of 10" );
+            document.updForm.updRating.focus() ;
+            return false;
+         }
+
+         if( document.updForm.imageurl.value == "" )
+         {
+            alert( "Please upload the image!" );
+            return false;
+         }
+         return( true );
+      }
+
+
+
+
+      function validate2()
+      {
+
+         if( document.addForm.Title.value == "" )
+         {
+            alert( "Please provide Title!" );
+            document.addForm.Title.focus() ;
+            return false;
+         }
+
+         if( document.addForm.Year.value == "" )
+         {
+            alert( "Please provide Year!" );
+            document.addForm.Year.focus() ;
+            return false;
+         }
+         if( document.addForm.Actors.value == "" )
+         {
+            alert( "Please provide Actors!" );
+            document.addForm.Actors.focus() ;
+            return false;
+         }
+
+
+         if( document.addForm.Director.value == "" )
+         {
+            alert( "Please provide Director!" );
+            document.addForm.Director.focus() ;
+            return false;
+         }
+
+         if( document.addForm.Released.value == "" )
+         {
+            alert( "Please provide Released Date" );
+            document.addForm.Released.focus() ;
+            return false;
+         }
+
+         if( document.addForm.Plot.value == "" )
+         {
+            alert( "Please provide Description" );
+            document.addForm.Plot.focus() ;
+            return false;
+         }
+
+         if( document.addForm.Rating.value == "" ||
+         isNaN( document.addForm.Rating.value ) ||
+         document.addForm.Rating.value > 10 )
+         {
+            alert( "Please provide Rating" );
+            document.addForm.Rating.focus() ;
+            return false;
+         }
+
+         if( document.addForm.Awards.value == "" )
+         {
+            alert( "Please provide Awards & Nominations" );
+            document.addForm.Awards.focus() ;
+            return false;
+         }
+
+         if( document.addForm.imageurl.value == "" )
+         {
+            alert( "Please upload the image!" );
+            return false;
+         }
+         return( true );
+      }
+
+    }
+    });
+
+    </script>
+
+  <!-- Linking the Bootstrap js File -->
+  <script src="javascript/bootstrap.min.js"></script>
+
+    </body>
+</html>

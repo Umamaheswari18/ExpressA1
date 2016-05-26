@@ -1,0 +1,36 @@
+#main
+{
+  background-color: #CCC;
+}
+
+
+ul{
+  list-style-type: none;
+}
+
+ul li
+{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+ul#line li{
+  display: inline;
+  list-style-type: none;
+}
+
+#movieImage
+{
+  padding: 10px;
+  padding-bottom: 20px;
+}
+
+#line{
+  padding-left: 0;
+}
+
+
+.row
+{
+  padding-bottom: 10px;
+}
